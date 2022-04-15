@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@500&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+li, a, button {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #edf0f1;
+    text-decoration: none;
+}
+
+header{
+    background-color: darkolivegreen;
+    height: 80px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px 5%;
+}
+
+.logo{
+    cursor: pointer;
+    margin-right: 560px;
+}
+
+.search-box{
+    position: absolute;
+    top: 40px;
+    left: 550px;
+    transform: translate(-50%,-50%);
+    background: rgb(255,165,0);
+    height: 40px;
+    border-radius: 40px;
+    padding: 1%;
+}
+
+.search-btn{
+    position: relative;
+    bottom: 15px;
+    left: 0px;
+    color: aqua;
+    float: right;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgb(255,165,0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+}
+
+.search-txt{
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding: 0;
+    color: #edf0f1;
+    font-size: 16px;
+    transition: 0.4s;
+    width: 0px;
+}
+
+.search-box:hover > .search-txt{
+    width: 240px;
+    padding: 0 6px;
+}
+
+.search-box:hover > .search-btn{
+    background: rgb(255,99,71);
+}
+
+.nav_links{
+    list-style: none;
+}
+
+.nav_links li{
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.nav_links li a{
+    transition: all 0.3s ease 0s;
+}
+
+.nav_links li a:hover{
+    color: rgb(255,165,0);
+}
+
+button{
+    margin-left: 20px;
+    padding: 9px 25px;
+    background-color: rgb(255,165,0);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+button:hover{
+    background-color: rgb(255,99,71);
+}
+
+:root{
+    --primary: rgba(0, 0, 0, 0.6);
+    --secondary: rgba(0, 0, 0, 0.6);
+}
