@@ -157,3 +157,39 @@ button:hover{
 .main .image-container .image:hover img {
     transform: scale(1.1);
 }
+
+.main .popup-window{
+    position: fixed;
+    top: 0; left: 0;
+    background: rgba(0,0,0,0.9);
+    height: 100%;
+    width: 100%;
+    z-index: 100;
+    display: none;
+}
+
+.main .popup-window span{
+    position: absolute;
+    top: 0; right: 10px;
+    font-size: 60px;
+    font-weight: bolder;
+    color: white;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.main .popup-window img{
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    border: 5px solid white;
+    border-radius: 5px;
+    width: 750px;
+    object-fit: cover;
+}
+
+@media (max-width: 768px){
+    .main .popup-window img{
+        width: 95%;
+    }
+}
