@@ -139,6 +139,7 @@ button:hover{
 }
 
 .main .image-container .image{
+    position: relative;
     height: 200px;
     width: 300px;
     border: 10px solid white;
@@ -156,6 +157,19 @@ button:hover{
 
 .main .image-container .image:hover img {
     transform: scale(1.1);
+}
+
+.main .image-container .image p{
+    position: absolute;
+    bottom: 0; left: 0;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    box-sizing: border-box;
+    font-family: "Ubuntu condensed";
+    font-size: 14px;
 }
 
 .main .popup-window{
