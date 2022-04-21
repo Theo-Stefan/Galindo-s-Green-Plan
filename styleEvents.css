@@ -217,6 +217,7 @@ button:hover{
     width: 100%;
     text-align: center;
     box-sizing: border-box;
+    padding: 5px;
     font-family: "Ubuntu condensed";
     font-size: 20px;
     opacity: 0;
