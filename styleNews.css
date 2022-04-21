@@ -175,7 +175,7 @@ button:hover{
 .main .popup-window{
     position: fixed;
     top: 0; left: 0;
-    background: rgba(0,0,0,0.9);
+    background: rgba(0,0,0,0.8);
     height: 100%;
     width: 100%;
     z-index: 100;
@@ -192,14 +192,37 @@ button:hover{
     z-index: 100;
 }
 
-.main .popup-window img{
+.main .popup-window .white-board{
     position: absolute;
     top: 50%; left: 50%;
     transform: translate(-50%,-50%);
-    border: 5px solid white;
+    background-color: white;
     border-radius: 5px;
     width: 750px;
+    height: 450px;
     object-fit: cover;
+}
+
+h2{
+    text-align: center;
+    padding: 10px;
+    font-family: "Ubuntu condensed";
+    font-size: 32px;
+}
+
+.white-board p{
+    padding: 10px;
+    text-align: left;
+    font-size: 24px;
+    font-family: "Ubuntu condensed";
+}
+
+.white-board .text-source{
+    padding: 10px;
+    text-align: left;
+    font-size: 24px;
+    font-family: "Ubuntu condensed";
+    color: darkcyan;
 }
 
 @media (max-width: 768px){

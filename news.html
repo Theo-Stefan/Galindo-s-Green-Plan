@@ -43,7 +43,27 @@
 
     <div class="popup-window">
         <span>&times;</span>
-        <img src="images/nikola-jovanovic-OBok3F8buKY-unsplash.jpg" alt="">
+        <div class="white-board">
+            <h2>You are Gay</h2>
+            <p>Πολλοί λένε ότι η ζωή δεν είναι σαν ένα κρεβάτι με τριαντάφυλλα. Διαφωνώ.<br>
+                Νομίζω ότι η ζωή μοιάζει πολύ με ένα κρεβάτι με τριαντάφυλλα. Ακριβώς όπως η ζωή, ένα κρεβάτι<br>
+                με τριαντάφυλλα φαίνεται όμορφο εξωτερικά, αλλά όταν είσαι μέσα σε αυτό, διαπιστώνεις<br>
+                ότι δεν είναι παρά αγκάθια και πόνος.<br>
+                Εγώ ο ίδιος με έχουν τσιμπήσει πολύ άσχημα.
+            </p>
+            <p class="text-source">Πηγή: stfu</p>
+        </div>
+
+        <div class="white-board">
+            <h2>You are Bebo</h2>
+            <p>Πολλοί λένε ότι η ζωή δεν είναι σαν ένα κρεβάτι με τριαντάφυλλα. Διαφωνώ.<br>
+                Νομίζω ότι η ζωή μοιάζει πολύ με ένα κρεβάτι με τριαντάφυλλα. Ακριβώς όπως η ζωή, ένα κρεβάτι<br>
+                με τριαντάφυλλα φαίνεται όμορφο εξωτερικά, αλλά όταν είσαι μέσα σε αυτό, διαπιστώνεις<br>
+                ότι δεν είναι παρά αγκάθια και πόνος.<br>
+                Εγώ ο ίδιος με έχουν τσιμπήσει πολύ άσχημα.
+            </p>
+            <p class="text-source">Πηγή: Boba69</p>
+        </div>
     </div>
 
 </div>
@@ -52,7 +72,6 @@
     document.querySelectorAll('.image-container img').forEach(image =>{
         image.onclick = () =>{
             document.querySelector('.popup-window').style.display = 'block';
-            document.querySelector('.popup-window img').src =image.getAttribute('src');
         }
     });
 
