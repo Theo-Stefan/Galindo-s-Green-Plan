@@ -32,12 +32,41 @@
             <h1>Εκδηλώσεις</h1>
 
             <div class="image-container">
-                <div class="image"><img src="images/nikola-jovanovic-OBok3F8buKY-unsplash.jpg" alt="image"></div>
-                <div class="image"><img src="images/noah-buscher-x8ZStukS2PM-unsplash.jpg" alt="image"></div>
-                <div class="image"><img src="images/tj-holowaychuk-1EYMue_AwDw-unsplash.jpg" alt="image"></div>
+
+                <div class="eventImgAndTxt">
+                    <div class="image"><img src="images/nikola-jovanovic-OBok3F8buKY-unsplash.jpg" alt="image"></div>
+                </div>
+
+                <div class="eventImgAndTxt">
+                    <div class="image"><img src="images/noah-buscher-x8ZStukS2PM-unsplash.jpg" alt="image"></div>
+                </div>
+
+                <div class="eventImgAndTxt">
+                    <div class="image"><img src="images/tj-holowaychuk-1EYMue_AwDw-unsplash.jpg" alt="image"></div>
+                </div>
+
             </div>
         </div>
+
+        <div class="popup-window">
+            <span>&times;</span>
+            <img src="images/nikola-jovanovic-OBok3F8buKY-unsplash.jpg" alt="">
+        </div>
+
     </div>
+
+    <script>
+        document.querySelectorAll('.image-container img').forEach(image =>{
+            image.onclick = () =>{
+                document.querySelector('.popup-window').style.display = 'block';
+                document.querySelector('.popup-window img').src =image.getAttribute('src');
+            }
+        });
+
+        document.querySelector('.popup-window span').onclick = () =>{
+            document.querySelector('.popup-window').style.display = 'none';
+        }
+    </script>
 
 
 </body>
