@@ -24,15 +24,15 @@
             <li><a href="#">ΕΠΙΚΟΙΝΩΝΙΑ</a> </li>
         </ul>
     </nav>
-    <a class="cta" href="#"><button>ΣΥΝΔΕΣΗ</button></a>
+    <a class="cta" href="login.html"><button>ΣΥΝΔΕΣΗ</button></a>
 </header>
 
 <div class="main">
     <h1>Τι νέο υπάρχει</h1>
 
     <div class="image-container">
-        <div class="image"><img src="images/nikola-jovanovic-OBok3F8buKY-unsplash.jpg" alt="image"> <p>You are gay</p></div>
-        <div class="image"><img src="images/noah-buscher-x8ZStukS2PM-unsplash.jpg" alt="image"> <p>You are gay</p></div>
+        <div class="image"><img src="images/nikola-jovanovic-OBok3F8buKY-unsplash.jpg" alt="image" onclick="showImage('pic1');"> <p>You are gay</p></div>
+        <div class="image"><img src="images/noah-buscher-x8ZStukS2PM-unsplash.jpg" alt="image" id="picture2" onclick="showImage('pic2');"> <p>You are gay</p></div>
         <div class="image"><img src="images/tj-holowaychuk-1EYMue_AwDw-unsplash.jpg" alt="image"> <p>You are gay</p></div>
         <div class="image"><img src="images/todd-quackenbush-XBxQZLNBM0Q-unsplash.jpg" alt="image"> <p>You are gay</p></div>
         <div class="image"><img src="images/lukasz-szmigiel-jFCViYFYcus-unsplash.jpg" alt="image"> <p>You are gay</p></div>
@@ -41,9 +41,10 @@
         <div class="image"><img src="images/josefin-WS5yjFjycNY-unsplash.jpg" alt="image"> <p>You are gay</p></div>
     </div>
 
-    <div class="popup-window">
+
+    <div class="popup-window" id="pic1">
         <span>&times;</span>
-        <div class="white-board" id="pic1">
+        <div class="white-board">
             <h2>You are Gay</h2>
             <p>Πολλοί λένε ότι η ζωή δεν είναι σαν ένα κρεβάτι με τριαντάφυλλα. Διαφωνώ.<br>
                 Νομίζω ότι η ζωή μοιάζει πολύ με ένα κρεβάτι με τριαντάφυλλα. Ακριβώς όπως η ζωή, ένα κρεβάτι<br>
@@ -53,27 +54,38 @@
             </p>
             <p class="text-source">Πηγή: stfu</p>
         </div>
+    </div>
 
-        <div class="white-board" id="pic2">
-            <h2>You are Bebo</h2>
+    <div class="popup-window" id="pic2">
+        <span>&times;</span>
+        <div class="white-board">
+            <h2>You are bebo</h2>
             <p>Πολλοί λένε ότι η ζωή δεν είναι σαν ένα κρεβάτι με τριαντάφυλλα. Διαφωνώ.<br>
                 Νομίζω ότι η ζωή μοιάζει πολύ με ένα κρεβάτι με τριαντάφυλλα. Ακριβώς όπως η ζωή, ένα κρεβάτι<br>
                 με τριαντάφυλλα φαίνεται όμορφο εξωτερικά, αλλά όταν είσαι μέσα σε αυτό, διαπιστώνεις<br>
                 ότι δεν είναι παρά αγκάθια και πόνος.<br>
                 Εγώ ο ίδιος με έχουν τσιμπήσει πολύ άσχημα.
             </p>
-            <p class="text-source">Πηγή: Boba69</p>
+            <p class="text-source">Πηγή: nigger</p>
         </div>
     </div>
+
+
+
 
 </div>
 
 <script>
-    document.querySelectorAll('.image-container img').forEach(image =>{
+    /*document.querySelectorAll('.image-container img').forEach(image =>{
         image.onclick = () =>{
             document.querySelector('.popup-window').style.display = 'block';
         }
-    });
+    });*/
+
+
+    function showImage(picture){
+        document.getElementById(picture).style.display = "block";
+    }
 
     document.querySelector('.popup-window span').onclick = () =>{
         document.querySelector('.popup-window').style.display = 'none';
