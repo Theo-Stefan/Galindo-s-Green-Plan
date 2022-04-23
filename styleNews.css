@@ -182,7 +182,7 @@ button:hover{
     display: none;
 }
 
-.main .popup-window span{
+.main .popup-window .close-btn{
     position: absolute;
     top: 0; right: 10px;
     font-size: 60px;
