@@ -213,14 +213,14 @@ h2{
 .white-board p{
     padding: 10px;
     text-align: left;
-    font-size: 24px;
+    font-size: 20px;
     font-family: "Ubuntu condensed";
 }
 
 .white-board .text-source{
     padding: 10px;
     text-align: left;
-    font-size: 24px;
+    font-size: 18px;
     font-family: "Ubuntu condensed";
     color: darkcyan;
 }
