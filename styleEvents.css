@@ -256,3 +256,8 @@ h2{
         width: 95%;
     }
 }
+
+.popup-window.i-will-go-btn-class{
+    position: relative;
+    width: 200px;
+}
