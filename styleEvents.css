@@ -257,7 +257,9 @@ h2{
     }
 }
 
-.popup-window.i-will-go-btn-class{
+.i-will-go-btn-class{
     position: relative;
+    top: 540px;
+    left: 45%;
     width: 200px;
 }
