@@ -124,17 +124,7 @@ button:hover{
     background-repeat: no-repeat;
 }
 
-h1{
-    color: black;
-    position: relative;
-    top: 40px;
-    text-align: center;
-    font-size: 50px;
-    font-family: "Ubuntu condensed";
-    font-weight: 500;
-}
-
-#white-cover-1{
+#white-cover1{
     width: 50%;
     height: 640px;
     background-color: #edf0f1;
@@ -143,7 +133,7 @@ h1{
     right: 50%;
 }
 
-#white-cover-2{
+#white-cover2{
     width: 50%;
     height: 640px;
     background-color: #edf0f1;
@@ -152,42 +142,59 @@ h1{
     left: 50%;
 }
 
-h2{
-    color: black;
-    position: relative;
-    top: 60px;
-    left: 170px;
-    text-align: left;
-    font-size: 28px;
+h1{
+    text-align: center;
+    padding: 30px;
+    font-size: 40px;
     font-family: "Ubuntu condensed";
-    font-weight: 500;
-    padding: 15px;
+}
+
+h2{
+    text-align: left;
+    padding: 5px;
+    font-size: 30px;
+    font-family: "Ubuntu condensed";
+    margin-left: 20%;
+    margin-top: 10px;
 }
 
 .fields{
-    position: relative;
-    top: 50px;
-    left: 185px;
-    height: 50px;
-    width: 400px;
-    font-size: 20px;
+    width: 450px;
     border-radius: 5px;
+    margin-left: 20%;
+    border: 2px solid black;
+
 }
 
-.fieldMessage{
-    position: relative;
-    top: 50px;
-    left: 185px;
-    height: 200px;
-    width: 400px;
+#title-message{
+    height: 40px;
     font-size: 20px;
-    border-radius: 5px;
+}
+
+#message{
+    height: 200px;
+    font-size: 16px;
     resize: none;
 }
 
-
-#send-btn{
+#send-message{
     position: relative;
-    top: 120px; right: 100px;
-    width: 200px;
+    top: 10%;
+    right: 40%;
+}
+
+h3{
+    text-align: left;
+    padding: 5px;
+    font-size: 22px;
+    font-family: "Ubuntu condensed";
+    margin-left: 20%;
+    margin-top: 10px;
+}
+
+iframe{
+    position: relative;
+    left: 20%;
+    outline: 2px solid black;
+    border-radius: 10px;
 }
