@@ -16,9 +16,9 @@
     </form> -->
 
     <?php
-        $flag = true;
+        $flag = 0.6;
         if ($flag){
-          echo $flag;
+          echo "true";
         }
      ?>
 

@@ -7,18 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <?php
-      session_start();
-      if (isset($_POST["logout_button"])){
-        session_destroy();
-        session_start();
-      }  
-      if (isset($_SESSION["username"])){
-        include("header.php");
-      } else {
-        include("header.html");
-      }
-     ?>
+    <?php include("headerSelection.php"); ?>
 
     <div id="main">
         <h1 id="title">Galindo's Green Plan</h1>

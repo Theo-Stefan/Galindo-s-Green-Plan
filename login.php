@@ -19,7 +19,7 @@
               <input class="fields" type="email" id="email" name="email" placeholder="example@gmail.com">
               <h2>Κωδικός</h2>
               <input class="fields" type="password" id="password" name="password" placeholder="Κωδικός">
-              <a href="forgotPassword.html" id="forgot-password">Ξέχασα τον κωδικό μου</a>
+              <a href="forgotPassword.php" id="forgot-password">Ξέχασα τον κωδικό μου</a>
               <a href="createAccount.php" id="create-account">Δημιουργία λογαριασμού</a>
               <a id="login-btn"  href="##"><button type="submit" name="submit_button">Είσοδος</button></a>
             </form>
@@ -33,17 +33,16 @@
 
               include("dbconnection.php");
 
-              $sql = "SELECT email, password, username FROM Users";
+              $sql = "SELECT email, password, username, ismod FROM Users";
               $result = $conn->query($sql);
 
               // Inputs logic
               if ($_SERVER["REQUEST_METHOD"] == "POST"){
                 if ((empty($_POST["email"]) || empty($_POST["password"]) ) && empty($_POST["submit_button"]) ){
                   //echo "email empty";
-                  echo "<br><br><br><span class=\"error\">";
-                  $Err = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Please Enter both email and password!".$_POST["email"]."&".$_POST["password"];
-                  echo $Err;
-                  echo "</span>";
+                  $error_msg = "<br><br><br><span class=\"error\">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Please Enter both email and password!
+                                </span>";
                 } else {
                   $email = test_input($_POST["email"]);
                   $password = $_POST["password"];
@@ -56,13 +55,22 @@
                         session_start();
                         $_SESSION["email"] = $email;
                         $_SESSION["username"] = $row["username"];
+                        $_SESSION["ismod"] = $row["ismod"];
                         header("Location: index.php");
                       }
+
+                      $error_msg = "<br><br><br>
+                      Λάθος email ή κωδικός! Παρακαλώ ελέγξτε τα στοιχεία σας.";
                     }
 
+                  } else {
+                    $error_msg = "<br><br><br>
+                    Δεν υπάρχει κανένας ενεργός χρήστης! Το συστημά εχεί καταρεύσει! Παρακαλώ δοκιμάστε αργότερα!";
                   }
 
                 }
+
+                echo $error_msg;
               }
 
 
@@ -76,7 +84,6 @@
                 return $data;
               }
              ?>
-
 
         </div>
     </div>

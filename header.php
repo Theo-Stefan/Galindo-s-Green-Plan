@@ -12,7 +12,7 @@
           <li><a href="about.html">ΣΧΕΤΙΚΑ</a> </li>
           <li><a href="news.html">ΝΕΑ</a> </li>
           <li><a href="events.html">ΕΚΔΗΛΩΣΕΙΣ</a> </li>
-          <li><a href="contact.html">ΕΠΙΚΟΙΝΩΝΙΑ</a> </li>
+          <li><a href="contact.php">ΕΠΙΚΟΙΝΩΝΙΑ</a> </li>
       </ul>
   </nav>
   <a class="cta"><?php echo $_SESSION["username"];?></a>

@@ -10,10 +10,13 @@
       <ul class="nav_links">
           <li><a href="index.php">ΑΡΧΙΚΗ</a> </li>
           <li><a href="about.html">ΣΧΕΤΙΚΑ</a> </li>
-          <li><a href="news.html">ΝΕΑ</a> </li>
-          <li><a href="events.html">ΕΚΔΗΛΩΣΕΙΣ</a> </li>
+          <li><a href="modNews.php">ΝΕΑ</a> </li>
+          <li><a href="modEvents.php">ΕΚΔΗΛΩΣΕΙΣ</a> </li>
           <li><a href="contact.php">ΕΠΙΚΟΙΝΩΝΙΑ</a> </li>
       </ul>
   </nav>
-  <a class="cta" href="login.php"><button>ΣΥΝΔΕΣΗ</button></a>
+  <a class="cta"><?php echo $_SESSION["username"];?></a>
+  <form method="post" action="index.php">
+    <input href="index.php" name="logout_button" type="submit" value="Αποσύνδεση">
+  </form>
 </header>
