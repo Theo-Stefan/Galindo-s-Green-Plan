@@ -1,24 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta name="viewport" content="with=device-width, initial-scale=1.0">
-    <meta charset="UTF-8">
-    <title>Galindo's Green Plan</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <?php include("headerSelection.php"); ?>
+  <head>
+      <meta name="viewport" content="with=device-width, initial-scale=1.0">
+      <meta charset="UTF-8">
+      <title>Galindo's Green Plan</title>
+      <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+      <?php include("headerSelection.php"); ?>
 
-    <div id="main">
-        <h1 id="title">Galindo's Green Plan</h1>
-        <p id="text">
-            Καλώς ήρθατε στη σελίδα μας, όπου κάνουμε το περιβάλλον ενα πιο φιλικό<br>
-            και υγιές μέρος. Γίνε και εσύ μέλος της ομάδας μας!<br>
-            <a href="about.html">Μάθε περισσότερα...</a>
-        </p>
-    </div>
+      <div id="main">
+          <h1 id="title">Galindo's Green Plan</h1>
+          <p id="text">
+              Καλώς ήρθατε στη σελίδα μας, όπου κάνουμε το περιβάλλον ενα πιο φιλικό<br>
+              και υγιές μέρος. Γίνε και εσύ μέλος της ομάδας μας!<br>
+              <a href="about.html">Μάθε περισσότερα...</a>
+          </p>
+      </div>
 
-
-
-</body>
+  </body>
 </html>

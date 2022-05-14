@@ -9,10 +9,10 @@
   <nav>
       <ul class="nav_links">
           <li><a href="index.php">ΑΡΧΙΚΗ</a> </li>
-          <li><a href="about.html">ΣΧΕΤΙΚΑ</a> </li>
+          <li><a href="modAbout.html">ΣΧΕΤΙΚΑ</a> </li>
           <li><a href="modNews.php">ΝΕΑ</a> </li>
           <li><a href="modEvents.php">ΕΚΔΗΛΩΣΕΙΣ</a> </li>
-          <li><a href="contact.php">ΕΠΙΚΟΙΝΩΝΙΑ</a> </li>
+          <li><a href="modContact.php">ΕΠΙΚΟΙΝΩΝΙΑ</a> </li>
       </ul>
   </nav>
   <a class="cta"><?php echo $_SESSION["username"];?></a>

@@ -9,9 +9,9 @@
   <nav>
       <ul class="nav_links">
           <li><a href="index.php">ΑΡΧΙΚΗ</a> </li>
-          <li><a href="about.html">ΣΧΕΤΙΚΑ</a> </li>
-          <li><a href="news.html">ΝΕΑ</a> </li>
-          <li><a href="events.html">ΕΚΔΗΛΩΣΕΙΣ</a> </li>
+          <li><a href="about.php">ΣΧΕΤΙΚΑ</a> </li>
+          <li><a href="news.php">ΝΕΑ</a> </li>
+          <li><a href="events.php">ΕΚΔΗΛΩΣΕΙΣ</a> </li>
           <li><a href="contact.php">ΕΠΙΚΟΙΝΩΝΙΑ</a> </li>
       </ul>
   </nav>
