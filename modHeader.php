@@ -9,7 +9,7 @@
   <nav>
       <ul class="nav_links">
           <li><a href="index.php">ΑΡΧΙΚΗ</a> </li>
-          <li><a href="modAbout.html">ΣΧΕΤΙΚΑ</a> </li>
+          <li><a href="modAbout.php">ΣΧΕΤΙΚΑ</a> </li>
           <li><a href="modNews.php">ΝΕΑ</a> </li>
           <li><a href="modEvents.php">ΕΚΔΗΛΩΣΕΙΣ</a> </li>
           <li><a href="modContact.php">ΕΠΙΚΟΙΝΩΝΙΑ</a> </li>

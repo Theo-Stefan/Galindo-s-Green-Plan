@@ -4,10 +4,10 @@
     <meta name="viewport" content="with=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <title>Galindo's Green Plan</title>
-    <link rel="stylesheet" href="styleNews.css">
+    <link rel="stylesheet" href="CSS/styleNews.css">
 </head>
 <body>
-  <?php include("headerSelection"); ?>
+  <?php include("headerSelection.php"); ?>
 
 <div class="main">
     <h1>Τι νέο υπάρχει</h1>

@@ -4,10 +4,10 @@
     <meta name="viewport" content="with=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <title>Galindo's Green Plan</title>
-    <link rel="stylesheet" href="styleLogin.css">
+    <link rel="stylesheet" href="CSS/styleLogin.css">
   </head>
   <body>
-    <?php include("header.html"); ?>
+    <?php include("HTML/header.html"); ?>
 
     <div id="main">
         <div id="white-cover">

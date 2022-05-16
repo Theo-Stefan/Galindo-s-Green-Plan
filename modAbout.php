@@ -4,7 +4,7 @@
     <meta name="viewport" content="with=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <title>Galindo's Green Plan</title>
-    <link rel="stylesheet" href="styleAbout.css">
+    <link rel="stylesheet" href="CSS/styleAbout.css">
 </head>
 <body>
     <?php include("headerSelection.php"); ?>
