@@ -10,14 +10,16 @@
   <?php include("headerSelection.php"); ?>
 
   <div class="main">
-      <h1>Τι νέο υπάρχει</h1>
 
+      <h1>Τι νέο υπάρχει</h1>
+        <form class="right" action="moderator.php" method="post"><div><button type="submit"> + </button></div></form>
+        
       <div class="image-container">
           <div class="image"><img src="images/42046696101.jpg" alt="image" onclick="showImage('pic1');"> <p>Τρύπα του όζοντος τον Σεπτέμβριο</p></div>
           <div class="image"><img src="images/Jeep-Compass-Trailhawk-and-S-4xe.jpg" alt="image" onclick="showImage('pic2');"> <p>Jeep: Πρόγραμμα επιβράβευσης της φιλικής στο περιβάλλον οδήγησης</p></div>
           <div class="image"><img src="images/ananeosimes-piges-energeias.jpg" alt="image" onclick="showImage('pic3');"> <p>Τα αλλεπάλληλα ρεκόρ στις ανανεώσιμες πηγές ενέργειας και το όφελος για την Ελλάδα</p></div>
           <div class="image"><img src="images/laxeio.jpg" alt="image" onclick="showImage('pic4');"> <p>Γάλλος κέρδισε 199 εκατ. ευρώ και τα διαθέτει για τη σωτηρία του πλανήτη</p></div>
-          <form action="moderator.php" method="post"><div><button type="submit"> + </button></div></form>
+
           <div class="image"><img src="images/pollusion-AP22094423918172.jpg" alt="image" onclick="showImage('pic5');"> <p>Ρύπανση: Μικροπλαστικά σωματίδια «ταξίδεψαν» από το περιβάλλον στους ανθρώπινους πνεύμονες</p></div>
           <div class="image"><img src="images/planet.jpg" alt="image" onclick="showImage('pic6');"> <p>Η αύξηση της θερμοκρασίας στον πλανήτη θα κυμανθεί ανάμεσα σε 1,5 και 2 βαθμούς Κελσίου</p></div>
           <div class="image"><img src="images/5502080072_88f8bf89ed_b.jpg" alt="image" onclick="showImage('pic7');"> <p>Έχουμε πολλές προστατευόμενες περιοχές στην Ελλάδα;</p></div>

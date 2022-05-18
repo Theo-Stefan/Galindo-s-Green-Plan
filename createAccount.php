@@ -81,6 +81,7 @@
                 session_start();
                 $_SESSION["email"] = $email;
                 $_SESSION["username"] = $username;
+                $_SESSION["ismod"] = 0;
                 header("Location: index.php");
               } else {
                 echo "Ο λογαριασμός αυτός δεν μπόρεσε να δημιουργηθεί.<br>

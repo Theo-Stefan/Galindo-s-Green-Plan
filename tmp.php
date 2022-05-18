@@ -11,16 +11,16 @@
     <form method="POST" action="" enctype="multipart/form-data">
        <input type="file" name="choosefile" value="" />
        <div>
-           <button type="submit" name="uploadfile">         UPLOAD       </button>
+           <button type="submit" name="uploadfile">UPLOAD</button>
        </div>
    </form>
 
 
-    <!-- <form action="tmp.php" method="post">
-      E-mail: <input type="text" name="email"><br>
+    <form action="tmp.php" method="post">
+      E-mail: <input type="text" name="email" value="heloo"><br>
       code: <input type="text" id="code2" name="code"><br>
       <a id="login-btn"  href="##"><button type="submit">Είσοδος</button></a>
-    </form> -->
+    </form>
 
     <?php
       $msg = "";

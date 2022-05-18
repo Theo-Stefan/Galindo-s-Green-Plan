@@ -10,7 +10,7 @@
   // Columns: id, firstname, lastname, username, email, password, reg_date, ismod
 
   // Table: News
-  // Columns: id, title, description, date, url, image
+  // Columns: id, title, description, date, url, image, priority
 
   // Table: Images
   // Columns: id, filename
