@@ -25,16 +25,16 @@ header{
 
 .list{
   height:100%;
-  width:15%;
-  position: fixed;
+  width:20%;
+  position: absolute;
   padding-top:10px;
   left: 0;
 }
 
 .working-frame{
   height:100%;
-  width:70%;
-  position: fixed;
+  width:80%;
+  position: absolute;
   padding-top:10px;
   right: 0;
 }
@@ -141,10 +141,13 @@ button:hover{
 
 .main{
     width: 100%;
-    height: 641px;
+    height: 1000px;
     background: linear-gradient(135deg, var(--primary), var(--secondary)),
     url("../images/chris-lejarazu-08wxrVv5rp8-unsplash.jpg") no-repeat center center;
     background-size: cover;
+
+    background-attachment: fixed;
+    background-repeat: no-repeat;
 }
 
 .main h1{

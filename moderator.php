@@ -33,7 +33,7 @@
   <div class="main">
     <div class="list">
       <center><h3>News</h3></center>
-      <?php
+      <?php   // Load the news dynimically
         $counter = 0;
         $pointer = array();   // To know whick title has which info
 
@@ -84,10 +84,6 @@
           //==================================================================================
           // Saving the post
           if (isset($_POST["save"])) {
-            $sqlSave = "UPDATE News
-             SET title = '".$_POST["title"]."', description = '".$_POST["desc"]."',
-             date = '".$_POST["date"]."', url = '".$_POST["url"]."', image = '".$_POST["image"]."', priority = ".$_POST["priority"]."
-             WHERE id=".$_SESSION["newsId"].";";
              $flag = true;
 
              // Check date
@@ -103,9 +99,55 @@
                $flag = false;
              }
 
+             // Check image
+             $filename = $_FILES["file"]["name"];
+             $tempname = $_FILES["file"]["tmp_name"];
+             $folder = "images/".$filename;
+
+             if (empty($filename)){ // Priority to the new selected file
+               $sqlSearch = "SELECT * FROM Images WHERE filename LIKE '".$_POST["image"]."';";
+               $result = $conn->query($sqlSearch);
+               if ($result->num_rows == 0){
+                 $Err .= "That image doesn't exist.<br>";
+                 $flag = false;
+               }
+             } else {
+               if(is_array(getimagesize($tempname))){
+                 $_POST["image"] = $filename;
+                 $sqlSearch = "SELECT filename FROM Images WHERE filename LIKE '$filename';";
+                 $result = $conn->query($sqlSearch);
+                 if ($result->num_rows == 0){   // if the file does not exist in the database save it
+                   $sqlInsert = "INSERT INTO Images (filename) VALUES ('$filename')";
+                   if ($conn->query($sqlInsert) == true){
+                     // Add the image to the "images" folder"
+                     if (!move_uploaded_file($tempname, $folder)) {
+                       $Err .= "Error occured during the saving of the image<br>Please try again<br>";
+                       $flag = false;
+                     }
+                   } else {
+                     $Err .= "Error occured during the saving of the image<br>Please try again<br>";
+                     $flag = false;
+                   }
+                 }
+
+
+               } else {
+                 $Err .= "The file is NOT an image.<br>Please upload only images<br>";
+                 $flag = false;
+               }
+             }
+
+
+
+             // Push Priorities
              securePriority($conn, $sql);
 
              if ($flag){
+               $sqlSave = "UPDATE News
+                SET title = '".$_POST["title"]."', description = '".$_POST["desc"]."',
+                date = '".$_POST["date"]."', url = '".$_POST["url"]."', image = '".$_POST["image"]."', priority = ".$_POST["priority"]."
+                WHERE id=".$_SESSION["newsId"].";";
+
                if ($conn->query($sqlSave)==true){
                  echo "<h2>Post saved!</h2>";
                } else {
@@ -188,6 +230,14 @@
 
           }
 
+          //=============================================================
+          // Reload button
+          if (isset($_POST["reload"]) || isset($_POST["workshop"])){
+            echo "<h1> Workspace </h1>
+            <h2>You can use in the title and description html tags<h2>
+            <h2>Priority shows the order of the posts</h2>";
+          }
+
 
           // while($row = $result->fetch_assoc()) {
           //   foreach($pointer as $name => $value){
@@ -211,7 +261,7 @@
           //   }
           // }
         } else {
-          echo "<h1>Working space</h1>";
+          echo "<h1>Workspace</h1>";
         }
 
         function mainFrameCreate($t, $des, $d, $url, $im, $pr){

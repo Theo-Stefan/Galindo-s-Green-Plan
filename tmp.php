@@ -16,12 +16,6 @@
    </form>
 
 
-    <form action="tmp.php" method="post">
-      E-mail: <input type="text" name="email" value="heloo"><br>
-      code: <input type="text" id="code2" name="code"><br>
-      <a id="login-btn"  href="##"><button type="submit">Είσοδος</button></a>
-    </form>
-
     <?php
       $msg = "";
       include("dbconnection.php");
@@ -33,18 +27,35 @@
         $tempname = $_FILES["choosefile"]["tmp_name"];
         $folder = "images/".$filename;
 
-        // query to insert the submitted data
-        $sql = "INSERT INTO Images (filename) VALUES ('$filename')";
-        // function to execute above query
-        if ($conn->query($sql) == true){
-          // Add the image to the "image" folder"
-          if (move_uploaded_file($tempname, $folder)) {
-            $msg = "Image uploaded successfully";
-          }else{
-            $msg = "Failed to upload image";
+
+        if (!empty($tempname)){
+          if(is_array(getimagesize($tempname))){
+            echo "it is an image.<br>";
+            foreach (getimagesize($tempname) as $v) {
+              echo $v."<br>";
+            }
+          } else {
+            echo "It is NOT an image";
           }
         }
-        echo $msg;
+
+        if (empty($filename)){
+          echo "The file is empty";
+        }
+
+
+        // query to insert the submitted data
+        //$sql = "INSERT INTO Images (filename) VALUES ('$filename')";
+        // function to execute above query
+        // if ($conn->query($sql) == true){
+        //   // Add the image to the "image" folder"
+        //   if (move_uploaded_file($tempname, $folder)) {
+        //     $msg = "Image uploaded successfully";
+        //   }else{
+        //     $msg = "Failed to upload image";
+        //   }
+        // }
+        //echo $msg;
 
       }
 

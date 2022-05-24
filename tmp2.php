@@ -40,8 +40,8 @@
       //   echo "error occured";
       // }
 
-
-
+      $sql = "DELETE FROM Images WHERE id = 57;";
+      $conn->query($sql);
 
       $conn->close();
 
