@@ -27,7 +27,7 @@
     <?php
       $email = "galindosplan@gmail.com";
       if (isset($_SESSION["email"])){
-        $header ="From: ".$_SESSION["email"]."\r\n";
+        $header ="From: ".$_SESSION["email"]."\n";
       } else {
         $header = "";
       }
@@ -48,8 +48,19 @@
         }
 
         if($flag){
-          mail($email, $title, $msg, $header);
-          echo "Το μυνημά σας στάλθηκε!";
+          //$msg .= "\n From ".$_SESSION["email"]."\n";
+          $command = escapeshellcmd("email_sender.py \"$title\" \"$msg\"");
+          //echo "command:$command<br>";
+          $result = shell_exec($command);
+          echo "result:".$result."<br>";
+          if($result){
+            echo "Το μυνημά σας στάλθηκε!<br>";
+          } else {
+            echo "Error occured during the send process<br>
+            please try again<br>";
+          }
+          //mail($email, $title, $msg, $header);
+
 
         } else {
           echo "Παρακαλώ συμπληρώστε την φόρμα πριν την υποβολή.";

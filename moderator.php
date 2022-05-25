@@ -59,6 +59,7 @@
        </form>
     </div>
 
+    <?php  ?>
     <!-- Working Frameword -->
     <div class="working-frame">
       <?php
@@ -85,6 +86,12 @@
           // Saving the post
           if (isset($_POST["save"])) {
              $flag = true;
+
+             // Check Title
+             if(empty($_POST["title"])){
+               $Err .= "Please enter a title<br>";
+               $flag = false;
+             }
 
              // Check date
              if (!empty($_POST["date"])){
@@ -136,8 +143,6 @@
                  $flag = false;
                }
              }
-
-
 
              // Push Priorities
              securePriority($conn, $sql);
@@ -196,6 +201,12 @@
             $flag = true;
             $Err = "";
 
+            // Check Title
+            if(empty($_POST["title"])){
+              $Err .= "Please enter a title<br>";
+              $flag = false;
+            }
+
             // Check date
             if (!empty($_POST["date"])){
               $d = explode("-", $_POST["date"]);
@@ -210,13 +221,61 @@
             }
 
             // Check priority
-            securePriority($conn, $sql);
+            if (!empty($_POST["priority"])){
+              securePriority($conn, $sql);
+            } else {
+              $Err .= "Please give this a priority number<br>";
+              $flag = false;
+            }
+
+
+            // check image file
+            $filename = $_POST["image"];
+            if (isset($_FILES["file"]["name"]) ){
+              $filename = $_FILES["file"]["name"];
+              $tempname = $_FILES["file"]["tmp_name"];
+              $folder = "images/".$filename;
+
+              if (empty($filename)){ // Priority to the new selected file
+                $filename = $_POST["image"];
+                $sqlSearch = "SELECT * FROM Images WHERE filename LIKE '".$_POST["image"]."';";
+                $result = $conn->query($sqlSearch);
+                if ($result->num_rows == 0){
+                  $Err .= "That image doesn't exist.<br>";
+                  $flag = false;
+                }
+              } else {
+                if(is_array(getimagesize($tempname))){
+                  $sqlSearch = "SELECT filename FROM Images WHERE filename LIKE '$filename';";
+                  $result = $conn->query($sqlSearch);
+                  if ($result->num_rows == 0){   // if the file does not exist in the database save it
+                    $sqlInsert = "INSERT INTO Images (filename) VALUES ('$filename')";
+                    if ($conn->query($sqlInsert) == true){
+                      // Add the image to the "images" folder"
+                      if (!move_uploaded_file($tempname, $folder)) {
+                        $Err .= "Error occured during the saving of the image<br>Please try again<br>";
+                        $flag = false;
+                      }
+
+                    } else {
+                      $Err .= "Error occured during the saving of the image<br>Please try again<br>";
+                      $flag = false;
+                    }
+                  }
+
+                } else {
+                  $Err .= "The file is NOT an image.<br>Please upload only images<br>";
+                  $flag = false;
+                }
+              }
+            }
+
 
 
             if ($flag){  // Everything is fine in the data that were given
               $sqlInsert = "INSERT INTO News (title, description, date, url, image, priority)
                 VALUES ('".$_POST["title"]."', '".$_POST["desc"]."', '".$_POST["date"]."',
-                   '".$_POST["url"]."', '".$_POST["image"]."', ".$_POST["priority"].");";
+                   '".$_POST["url"]."', '".$filename."', ".$_POST["priority"].");";       // ==========================filename and image creation
 
               if ($conn->query($sqlInsert)==true){
                 echo "<h2>Post was inserted successfully!</h2>";
@@ -277,6 +336,7 @@
                   <input class=\"fields\" type=\"text\" name=\"url\" value=\"".$url."\">
                   <h2> Image </h2>
                   <input class=\"fields\" type=\"text\" name=\"image\" value=\"".$im."\">
+                  <input type=\"file\" name=\"file\" value=\"".$im."\">
                   <h2> Priority </h2>
                   <input type=\"number\" name=\"priority\" value=\"".$pr."\">
                   <button type=\"submit\" name=\"createSql\">Create</button>

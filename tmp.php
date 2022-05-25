@@ -45,17 +45,17 @@
 
 
         // query to insert the submitted data
-        //$sql = "INSERT INTO Images (filename) VALUES ('$filename')";
-        // function to execute above query
-        // if ($conn->query($sql) == true){
-        //   // Add the image to the "image" folder"
-        //   if (move_uploaded_file($tempname, $folder)) {
-        //     $msg = "Image uploaded successfully";
-        //   }else{
-        //     $msg = "Failed to upload image";
-        //   }
-        // }
-        //echo $msg;
+        $sql = "INSERT INTO Images (filename) VALUES ('$filename')";
+        function to execute above query
+        if ($conn->query($sql) == true){
+          // Add the image to the "image" folder"
+          if (move_uploaded_file($tempname, $folder)) {
+            $msg = "Image uploaded successfully";
+          }else{
+            $msg = "Failed to upload image";
+          }
+        }
+        echo $msg;
 
       }
 
