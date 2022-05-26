@@ -60,9 +60,7 @@
               $myfile = fopen("emailfile.txt", "w") or $feedback.="no email for today.<br>System down<br>";
               fwrite($myfile, "$email\n$title\n$msg\n$sender");;
               fclose($myfile);
-              //$command = escapeshellcmd("python email_sender.py \"$title\" \"$msg\"");
               $command = escapeshellcmd("python email_sender.py emailfile.txt");
-              //echo "command:$command<br>";
               $result = shell_exec($command);
               //$feedback .= "result:".$result."<br>";
               if($result){
