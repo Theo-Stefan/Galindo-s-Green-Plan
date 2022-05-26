@@ -9,7 +9,7 @@
   <body>
 
     <form method="POST" action="" enctype="multipart/form-data">
-       <input type="file" name="choosefile" value="" />
+       <input type="file" name="file" value="" accept="image/*"/>
        <div>
            <button type="submit" name="uploadfile">UPLOAD</button>
        </div>
@@ -17,17 +17,17 @@
 
 
     <?php
+
       $msg = "";
       include("dbconnection.php");
 
       //check if the user has clicked the button "UPLOAD"
-
-      if (isset($_POST['uploadfile'])) {
-        $filename = $_FILES["choosefile"]["name"];
-        $tempname = $_FILES["choosefile"]["tmp_name"];
+      if (isset($_FILES["file"]["name"])) {
+        $filename = $_FILES["file"]["name"];
+        $tempname = $_FILES["file"]["tmp_name"];
         $folder = "images/".$filename;
 
-
+        echo $_FILES["file"]["full_path"]."<br>";
         if (!empty($tempname)){
           if(is_array(getimagesize($tempname))){
             echo "it is an image.<br>";
@@ -45,17 +45,17 @@
 
 
         // query to insert the submitted data
-        $sql = "INSERT INTO Images (filename) VALUES ('$filename')";
-        function to execute above query
-        if ($conn->query($sql) == true){
-          // Add the image to the "image" folder"
-          if (move_uploaded_file($tempname, $folder)) {
-            $msg = "Image uploaded successfully";
-          }else{
-            $msg = "Failed to upload image";
-          }
-        }
-        echo $msg;
+        // $sql = "INSERT INTO Images (filename) VALUES ('$filename')";
+        // function to execute above query
+        // if ($conn->query($sql) == true){
+        //   // Add the image to the "image" folder"
+        //   if (move_uploaded_file($tempname, $folder)) {
+        //     $msg = "Image uploaded successfully";
+        //   }else{
+        //     $msg = "Failed to upload image";
+        //   }
+        // }
+        // echo $msg;
 
       }
 

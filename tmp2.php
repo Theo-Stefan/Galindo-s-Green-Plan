@@ -38,10 +38,16 @@
       //   echo "added to table";
       // } else {
       //   echo "error occured";
-      // }
+      //
+      $valid_types = ["tiff", "tif", "jpg", "jpeg", "gif", "png"];
+      $str ="hello.jpg.tiffpng";
+      $result = explode(".", $str);
 
-      $sql = "DELETE FROM Images WHERE id = 57;";
-      $conn->query($sql);
+      $type =$result[count($result)-1];
+  print_r(explode(".", $str));
+      echo in_array($type, $valid_types);
+
+
 
       $conn->close();
 
