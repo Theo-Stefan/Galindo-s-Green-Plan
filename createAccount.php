@@ -70,8 +70,19 @@
               $password = $_POST["password"];
             } else {
               $flag = false;
-            }
 
+            // Check if the email exists by senting
+            $title = "Galindos Plan Registration";
+            $msg = "You successfully created an account to our site!\n
+            Thank you!";
+            $myfile = fopen("emailfile.txt", "w") or $error_msg.="no email for today.<br>System down<br>";
+            fwrite($myfile, "$email\n$title\n$msg");;
+            fclose($myfile);
+            $command = escapeshellcmd("python email_sender.py emailfile.txt");
+            $result = shell_exec($command);
+            if(!$result){
+              $flag = false;
+            }
 
             if ($flag){ // everything is fine to proceed and add the new User
               $sql = "INSERT INTO Users (firstname, lastname, username, email, password)
@@ -88,7 +99,7 @@
                       Παρακαλώ δοκιμάστε αργότερα";
               }
             } else {
-              echo "<br><br><br><br><h3>Πρέπει να συμπληρώσεις όλα τα στοιχεία.</h3>";
+              echo "<br><br><br><br><h3>Πρέπει να συμπληρώσεις όλα τα στοιχεία σωστά.</h3>";
             }
 
           }
