@@ -18,33 +18,46 @@
             <input class="fields" type="email" id="email" name="forgotten_email" placeholder="example@gmail.com">
 
 
-            <a id="send-btn" href="##"><button type="submit">Αποστολή</button></a>
+            <a id="send-btn" href="##"><button type="submit" name="forgotPasswordButton">Αποστολή</button></a>
           </form>
 
           <?php
             include("dbconnection.php");
+            $error_msg ="";
 
             $sql = "SELECT email, password FROM Users";
             $result = $conn->query($sql);
 
-            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            if ($_SERVER["REQUEST_METHOD"] == "POST"){
+              $email = $_POST["forgotten_email"];
+              $title = "Forgotten Password(Galindo's Plan)";
+
               if (!empty($_POST["forgotten_email"])){
                 if ($result->num_rows > 0) {
                   while($row = $result->fetch_assoc()) {
                     if ($row["email"] == $_POST["forgotten_email"]) {
-                      mail($_POST["forgotten_email"],"Forgotten Password(Galindo's Plan)",
-                      "Your password to our website is: ".$row["password"]."\n This message is just a reminder.",
-                      "From: galindosplan@gmail.com\r\n");
-                      $error_msg = "Το email στάλθηκε με επιτυχία!";
+                      $msg = "Your password to our website is: ".$row["password"]."\n This message is just a reminder.";
+                      $myfile = fopen("emailfile.txt", "w") or $error_msg.="no email for today.<br>System down<br>";
+                      fwrite($myfile, "$email\n$title\n$msg");;
+                      fclose($myfile);
+                      $command = escapeshellcmd("python email_sender.py emailfile.txt");
+                      $result = shell_exec($command);
+                      //$feedback .= "result:".$result."<br>";
+                      if($result){
+                        $error_msg .= "Το μυνημά σας στάλθηκε!<br>";
+                      } else {
+                        $error_msg .= "Error occured during the send process<br>
+                        please try again<br>";
+                      }
                       break;
                     }
 
-                    $error_msg = "<br><br><br>
+                    $error_msg .= "<br><br><br>
                     Λάθος email! Παρακαλώ ελέγξτε τα στοιχεία σας.";
                   }
 
                 } else {
-                  $error_msg = "<br><br><br>
+                  $error_msg .= "<br><br><br>
                   Δεν υπάρχει κανένας ενεργός χρήστης! Το συστημά εχεί καταρεύσει! Παρακαλώ δοκιμάστε αργότερα!";
                 }
               } else {
@@ -52,18 +65,14 @@
                 Παρακαλώ συμπληρώστε ένα email!";
               }
 
-              echo $error_msg;
+              echo "<br><br><h2>$error_msg</h2>";
             }
 
             $conn->close();
            ?>
 
-
-
-
-
-
       </div>
+
   </div>
 
 

@@ -22,60 +22,76 @@
           <textarea class="fields" type="text" id="message" name="msg" placeholder=""></textarea>
           <a id="send-message"><button type="submit" name="contact_button">Αποστολή</button></a>
         </form>
-    </div>
-
-    <?php
-      $email = "galindosplan@gmail.com";
-      if (isset($_SESSION["email"])){
-        $header ="From: ".$_SESSION["email"]."\n";
-      } else {
-        $header = "";
-      }
-
-
-      if ($_SERVER["REQUEST_METHOD"] == "POST"){
-        $flag = true;
-        if (empty($_POST["title"])){
-          $flag = false;
-        } else {
-          $title = test_input($_POST["title"]);
-        }
-
-        if (empty($_POST["msg"])){
-          $flag = false;
-        } else {
-          $msg = wordwrap(test_input($_POST["msg"]), 70);
-        }
-
-        if($flag){
-          //$msg .= "\n From ".$_SESSION["email"]."\n";
-          $command = escapeshellcmd("email_sender.py \"$title\" \"$msg\"");
-          //echo "command:$command<br>";
-          $result = shell_exec($command);
-          echo "result:".$result."<br>";
-          if($result){
-            echo "Το μυνημά σας στάλθηκε!<br>";
+        <?php
+          $feedback = "";
+          $email = "galindosplan@gmail.com";
+          if (isset($_SESSION["email"])){
+            $header ="From: ".$_SESSION["email"]."\n";
           } else {
-            echo "Error occured during the send process<br>
-            please try again<br>";
+            $header = "";
           }
-          //mail($email, $title, $msg, $header);
 
 
-        } else {
-          echo "Παρακαλώ συμπληρώστε την φόρμα πριν την υποβολή.";
-        }
-      }
+          if ($_SERVER["REQUEST_METHOD"] == "POST"){
+            $flag = true;
+            if (empty($_POST["title"])){
+              $flag = false;
+            } else {
+              $title = test_input($_POST["title"]);
+            }
+
+            if (empty($_POST["msg"])){
+              $flag = false;
+            } else {
+              $msg = wordwrap(test_input($_POST["msg"]), 70);
+            }
+
+            if($flag){
+              //$msg .= "\n From ".$_SESSION["email"]."\n";
+              if (isset($_SESSION["email"])){
+                if (!empty($_SESSION["email"])){
+                  $sender = "From: ".$_SESSION["email"];
+                } else {
+                  $sender = "anonymous";
+                }
+              } else {
+                $sender = "anonymous";
+              }
+              $myfile = fopen("emailfile.txt", "w") or $feedback.="no email for today.<br>System down<br>";
+              fwrite($myfile, "$email\n$title\n$msg\n$sender");;
+              fclose($myfile);
+              //$command = escapeshellcmd("python email_sender.py \"$title\" \"$msg\"");
+              $command = escapeshellcmd("python email_sender.py emailfile.txt");
+              //echo "command:$command<br>";
+              $result = shell_exec($command);
+              //$feedback .= "result:".$result."<br>";
+              if($result){
+                $feedback .= "Το μυνημά σας στάλθηκε!<br>";
+              } else {
+                $feedback .= "Error occured during the send process<br>
+                please try again<br>";
+              }
+              //mail($email, $title, $msg, $header);
 
 
-      function test_input($data){
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
-      }
-     ?>
+            } else {
+              $feedback .= "Παρακαλώ συμπληρώστε την φόρμα πριν την υποβολή.";
+            }
+          }
 
+
+          function test_input($data){
+            $data = trim($data);
+            $data = stripslashes($data);
+            $data = htmlspecialchars($data);
+            return $data;
+          }
+
+          if(isset($_POST["contact_button"])){
+            echo "<h3>$feedback</h3>";
+          }
+         ?>
+    </div>
 
     <div id="white-cover2">
         <h1>Στοιχεία επικοινωνίας</h1>

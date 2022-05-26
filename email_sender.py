@@ -15,13 +15,18 @@ def sendEmail(sender,password,receiver,message):
 
 
 def main():
+    with open(sys.argv[1]) as f:
+        to = f.readline()
+        subject = f.readline()
+        body = f.read()
+        f.close()
 
-    subject = sys.argv[1]
-    body = sys.argv[2]
+    #subject = sys.argv[1]
+    # = sys.argv[2]
     msg = f'Subject: {subject}\n\n{body}'
 
 
-    sendEmail("galindosplan@gmail.com","galindo@super1","galindosplan@gmail.com",msg)
+    sendEmail("galindosplan@gmail.com","galindo@super1",to, msg)
 
 
 
