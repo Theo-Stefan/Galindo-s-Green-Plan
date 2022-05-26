@@ -6,6 +6,7 @@
           <img src="other%20images/search%20icon.png" height="20">
       </a>
   </div>
+  <?php include("search.php"); ?>
   <nav>
       <ul class="nav_links">
           <li><a href="index.php">ΑΡΧΙΚΗ</a> </li>

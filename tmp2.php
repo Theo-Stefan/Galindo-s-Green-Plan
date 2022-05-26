@@ -11,7 +11,7 @@
     // Columns: id, title, description, date, url, image, priority
       include("dbconnection.php");
 
-      // $sql ="CREATE TABLE News (
+      // $sql ="CREATE TABLE Events (
       //         id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
       //         title VARCHAR(255) NOT NULL,
       //         description VARCHAR(2047) NOT NULL,
@@ -19,7 +19,8 @@
       //         url VARCHAR(255),
       //         image VARCHAR(255) NOT NULL DEFAULT 'jan-huber-4OhFZSAT3sw-unsplash.jpg',
       //         priority INT(6) NOT NULL UNIQUE
-      //       )";
+      //
+      //       );";
 
       // $sql = "INSERT INTO News (title, description, date, url, image, priority)
       //         VALUES ('Τα αλλεπάλληλα ρεκόρ στις ανανεώσιμες πηγές ενέργειας και το όφελος για την Ελλάδα', 'Σπάνε το ένα ρεκόρ μετά το άλλο οι ανανεώσιμες πηγές ενέργειας,
@@ -35,17 +36,10 @@
       //           'ananeosimes-piges-energeias.jpg', 3);";
 
       // if ($conn->query($sql) == true){
-      //   echo "added to table";
+      //   echo "added table";
       // } else {
       //   echo "error occured";
-      //
-      $valid_types = ["tiff", "tif", "jpg", "jpeg", "gif", "png"];
-      $str ="hello.jpg.tiffpng";
-      $result = explode(".", $str);
-
-      $type =$result[count($result)-1];
-  print_r(explode(".", $str));
-      echo in_array($type, $valid_types);
+      // }
 
 
 

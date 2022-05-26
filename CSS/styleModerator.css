@@ -23,6 +23,20 @@ header{
     padding: 10px 5%;
 }
 
+.vl {
+border-left: 6px solid black;
+height: 500px;
+left: 9%;
+margin-left: -3px;
+top: 0;
+}
+
+button.link {
+  background:none;
+  border:none;
+
+}
+
 .list{
   height:100%;
   width:20%;

@@ -8,27 +8,12 @@
 </head>
 <body>
 
-  <style>
-    .vl {
-    border-left: 6px solid black;
-    height: 500px;
-    left: 9%;
-    margin-left: -3px;
-    top: 0;
-    }
-
-    button.link {
-      background:none;
-      border:none;
-
-    }
-  </style>
-
   <?php
     include("headerSelection.php");
     include("dbconnection.php");
     $sql = "SELECT id, title, description, date, url, image, priority FROM News;";
     $VALID_TYPES_IMAGES = ["tiff", "tif", "jpg", "jpeg", "gif", "png"];
+    $Err = "";
   ?>
 
   <div class="main">
@@ -51,8 +36,8 @@
           }
 
         } else {
-          $error_msg = "<br><br><br>
-          Δεν υπάρχει κανένας νέο ανεβασμένο.";
+          $Err .= "<br><br><br>
+          Δεν υπάρχει κανένας νέο ανεβασμένο.<br>";
         }
        ?>
        <form action="moderator.php" method="post">
@@ -60,11 +45,10 @@
        </form>
     </div>
 
-    <?php  ?>
     <!-- Working Frameword -->
     <div class="working-frame">
       <?php
-      $Err = "";
+
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
           // Print the informations of its of the posts
@@ -333,6 +317,9 @@
             echo "<h1> Workspace </h1>
             <h2>You can use in the title and description html tags<h2>
             <h2>Priority shows the order of the posts</h2>";
+            echo "<form method=\"post\" action=\"modEvents.php\">
+                    <center><button type=\"submit\" name=\"workshop\"> Add Events </button></center>
+                  </form>";
           }
 
         } else {

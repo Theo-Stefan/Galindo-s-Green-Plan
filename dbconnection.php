@@ -14,4 +14,7 @@
 
   // Table: Images
   // Columns: id, filename
+
+  // Table: Events
+  // Columns: id, title, description, date, url, image, priority
 ?>

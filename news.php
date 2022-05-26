@@ -7,12 +7,11 @@
     <link rel="stylesheet" href="CSS/styleNews.css">
 </head>
 <body>
-  <?php include("headerSelection.php");
-        include("dbconnection.php");
-
-        $sql = "SELECT title, description, date, url, image, priority FROM News ORDER BY priority";
-        //$sql = "SELECT title, description, date, url, image, priority FROM News WHERE priority = 1";
-
+  <?php
+    include("headerSelection.php");
+    include("dbconnection.php");
+    $sql = "SELECT title, description, date, url, image, priority FROM News ORDER BY priority";
+    $MAX_POST = 8;
    ?>
 
   <div class="main">
@@ -21,7 +20,9 @@
       <?php     // Moderator Button
         if(isset($_SESSION["ismod"])){
           if ($_SESSION["ismod"]){
-            echo "<form class=\"right\" action=\"moderator.php\" method=\"post\"><div><button type=\"submit\" name=\"workshop\"> Add News </button></div></form>";
+            echo "<form class=\"right\" action=\"moderator.php\" method=\"post\">
+                    <div><button type=\"submit\" name=\"workshop\"> Add News </button></div>
+                  </form>";
           }
 
         }
@@ -37,7 +38,7 @@
               while ($row = $result->fetch_assoc()){
                 container($row["title"], $row["description"], $row["date"], $row["url"], $row["image"], $counter);
                 $counter++;
-                if ($counter>=8) {    // Max 8 News at a time
+                if ($counter>=$MAX_POST) {    // Max 8 News at a time
                   break;
                 }
               }

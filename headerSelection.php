@@ -12,6 +12,6 @@
     }
 
   } else {            // Default site
-    include("HTML/header.html");
+    include("header.php");
   }
  ?>
