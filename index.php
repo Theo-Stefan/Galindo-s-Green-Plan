@@ -3,6 +3,7 @@
   <head>
       <meta name="viewport" content="with=device-width, initial-scale=1.0">
       <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1" /> 
       <title>Galindo's Green Plan</title>
       <link rel="stylesheet" href="CSS/style.css">
   </head>
